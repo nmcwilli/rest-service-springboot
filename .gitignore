@@ -1,0 +1,39 @@
+# Ignore target and build output folders
+target/
+build/
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.iml
+
+# Ignore Maven-specific files
+mvnw
+mvnw.cmd
+.mvn/
+
+# Ignore Gradle-specific files
+gradle/
+.gradle/
+
+# Ignore Spring Boot generated files
+spring-boot-starter*.properties
+application.properties
+src/main/resources/application.properties
+application.yml
+application.yaml
+application-test.properties
+application-test.yml
+application-test.yaml
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.log.*
+*.tmp
+
+# Ignore application-specific files or folders (add as needed)
+# /path/to/your/application-specific-file-or-folder/
+
+# Ignore generated output, such as compiled classes or jar files (add as needed)
+# /path/to/your/generated-output/
