@@ -19,7 +19,6 @@ gradle/
 # Ignore Spring Boot generated files
 spring-boot-starter*.properties
 application.properties
-src/main/resources/application.properties
 application.yml
 application.yaml
 application-test.properties
