@@ -24,6 +24,7 @@ application.yaml
 application-test.properties
 application-test.yml
 application-test.yaml
+docker-compose.yml
 
 # Ignore logs and temporary files
 logs/
