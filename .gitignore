@@ -19,6 +19,7 @@ gradle/
 # Ignore Spring Boot generated files
 spring-boot-starter*.properties
 application.properties
+application-docker.properties
 application.yml
 application.yaml
 application-test.properties

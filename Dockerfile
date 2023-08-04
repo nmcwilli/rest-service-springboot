@@ -5,6 +5,16 @@
 # JDK used will be Liberica JDK 17
 FROM bellsoft/liberica-openjdk-alpine:17
 
+# Set the working directory
+WORKDIR /app
+
+# Copy property files to the image
+COPY application.properties /app/
+COPY application-docker.properties /app/
+
+# Set environment variable to use Docker specific properties
+ENV SPRING_CONFIG_LOCATION=/app/application-docker.properties
+
 # Creates a specific space to persist some data in your container. The tmp folder will store information.
 VOLUME /tmp
 
