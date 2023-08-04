@@ -6,14 +6,14 @@
 FROM bellsoft/liberica-openjdk-alpine:17
 
 # Set the working directory
-WORKDIR /app
+# WORKDIR /app
 
 # Copy property files to the image
-COPY application.properties /app/
-COPY application-docker.properties /app/
+# COPY application.properties /app/
+# COPY application-docker.properties /app/
 
 # Set environment variable to use Docker specific properties
-ENV SPRING_CONFIG_LOCATION=/app/application-docker.properties
+# ENV SPRING_CONFIG_LOCATION=/app/application-docker.properties
 
 # Creates a specific space to persist some data in your container. The tmp folder will store information.
 VOLUME /tmp
@@ -28,7 +28,7 @@ EXPOSE 8080
 # target folder and save it in a JAR_FILE variable. You can also pass more
 # arguments like credentials, keys, and environment variables with their
 # respective values.
-ARG JAR_FILE=build/libs/rest-service-0.0.9-SNAPSHOT.jar
+ARG JAR_FILE=build/libs/rest-service-0.1.3-SNAPSHOT.jar
 
 # Renames Jar file as app.jar
 ADD ${JAR_FILE} app.jar
