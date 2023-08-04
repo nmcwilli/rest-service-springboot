@@ -1,5 +1,4 @@
 # Dockerfile build script for Spring Boot Rest Service
-# By Neil McWilliam (Note this is a starter)
 
 # creates a layer from an existing Java base image that exists
 # locally or in any container registry that runs our container.
