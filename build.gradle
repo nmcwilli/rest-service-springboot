@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.nmcwilli'
-version = '0.0.8-SNAPSHOT'
+version = '0.0.9-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
