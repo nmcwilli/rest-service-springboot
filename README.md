@@ -1,15 +1,15 @@
-## RESTful API w/ Spring Boot
+## REST API w/ Spring Boot
 
 ### Description
 
-This is a RESTful API built with Spring Boot that can be used as a starting place.
+This is a REST API built with Spring Boot that can be used as a starting point for a Spring Boot back-end.
 
 Stack:
 - MariaDB (database)
 - Back-end (Spring Boot w/ Tomcat)
 
 Gradle build.gradle:
-```aidl
+```
 plugins {
 	id 'org.springframework.boot' version '3.1.0'
 	id 'io.spring.dependency-management' version '1.1.0'
@@ -38,7 +38,7 @@ test {
 ```
 
 Deploy command:
-```aidl
+```
 `./gradlew bootRun`
 ```
 
@@ -55,8 +55,13 @@ Sample Curl Add User:
 $ curl http://localhost:8080/users/add -d name=First -d email=someemail@someemailprovider.com
 ```
 
+If you are adding via Postman (Post):
+```
+http://localhost:8080/users/add?name=First&email=someemail@someemailprovider.com
+```
+
 Sample CURL Grab all User Data:
-```aidl
+```
 $ curl http://localhost:8080/users/all
 ```
 
