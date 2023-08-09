@@ -5,8 +5,8 @@
 This is a REST API built with Spring Boot that can be used as a starting point for a Spring Boot back-end.
 
 Stack:
-- MariaDB (database)
-- Back-end (Spring Boot w/ Tomcat)
+- MariaDB (Database)
+- Backend (Spring Boot w/ Tomcat)
 
 Gradle build.gradle:
 ```
@@ -37,9 +37,14 @@ test {
 }
 ```
 
+To generate a new build, run:
+```
+./gradlew build
+```
+
 Deploy command:
 ```
-`./gradlew bootRun`
+./gradlew bootRun
 ```
 
 DB structure: 
