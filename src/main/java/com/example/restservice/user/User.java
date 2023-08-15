@@ -1,11 +1,10 @@
-package com.example.restservice;
+package com.example.restservice.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; // BCrypt
 
 @Entity // This tells Hibernate to make a table out of this class
+@Table(name = "user") // Defining a table name
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -14,6 +13,13 @@ public class User {
     private String name;
 
     private String email;
+
+    private String password;
+
+    public void setPassword(String password) {
+        // this.password = new BCryptPasswordEncoder().encode(password);
+        this.password = new String(password);
+    }
 
     public Integer getId() {
         return id;
