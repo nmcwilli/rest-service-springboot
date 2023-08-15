@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-// Service layer contains all the Business logic
+// Service layer contains all the Business logic for Client Service
 
 @Service
 public class ClientService {

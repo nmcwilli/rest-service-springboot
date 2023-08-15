@@ -12,6 +12,9 @@ import java.time.LocalDate;
 @Table(name = "client") // Defining a table name
 public class Client {
 
+    // Table fields
+    // ------------
+
     @Id
     @GeneratedValue
     private Long id; // Client ID
@@ -48,6 +51,7 @@ public class Client {
     }
 
     // Getters and Setters
+    // -------------------
 
     public Long getId() { // getId
         return id;

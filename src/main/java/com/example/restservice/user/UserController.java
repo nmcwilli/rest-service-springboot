@@ -1,41 +1,34 @@
 package com.example.restservice.user;
 
+import com.example.restservice.client.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
-    @Autowired
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @PostMapping(path="/add") // Map ONLY POST Requests
+    public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String email) {
+        return userService.addNewUser(name, email);
+    }
+
+    @GetMapping(path="/all")
+    public @ResponseBody Iterable<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody UserRequest userRequest) {
-        // Create a new User object
-        User newUser = new User();
-        newUser.setName(userRequest.getName());
-        newUser.setEmail(userRequest.getEmail());
-
-        // Hash the password before setting it
-        // String hashedPassword = new BCryptPasswordEncoder().encode(userRequest.getPassword());
-        // newUser.setPassword(hashedPassword);
-        newUser.setPassword(userRequest.getPassword()); // Setting raw password for testing
-
-        // Save the new user in the repository
-        User savedUser = userRepository.save(newUser);
-
-        // Return the saved user with a 201 Created status
-        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+        return userService.createUser(userRequest);
     }
 }

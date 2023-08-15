@@ -8,24 +8,34 @@ import jakarta.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Long id; // User ID
 
-    private String name;
+    private String name; // User Name
 
-    private String email;
+    private String email; // User Email
 
-    private String password;
+    private String password; // User Password
+
+    // Constructors
+    // ------------
+
+    // No R constructor
+    public User() {
+    }
 
     public void setPassword(String password) {
         // this.password = new BCryptPasswordEncoder().encode(password);
         this.password = new String(password);
     }
 
-    public Integer getId() {
+    // Getters and Setters
+    // -------------------
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
