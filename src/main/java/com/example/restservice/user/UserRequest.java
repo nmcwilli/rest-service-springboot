@@ -9,6 +9,7 @@ public class UserRequest {
     // Constructors if needed
 
     public UserRequest() {
+
     }
 
     public UserRequest(String name, String email, String password) {
