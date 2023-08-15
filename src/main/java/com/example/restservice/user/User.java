@@ -7,7 +7,9 @@ import jakarta.persistence.*;
 @Table(name = "user") // Defining a table name
 public class User {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
     private Long id; // User ID
 
     private String name; // User Name
