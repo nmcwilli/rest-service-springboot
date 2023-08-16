@@ -1,14 +1,14 @@
-## REST API w/ Spring Boot
+# REST API w/ Spring Boot
 
-### Description
+## Description
 
 This is a REST API built with Spring Boot that can be used as a starting point for a Spring Boot back-end.
 
-Stack:
+## Stack:
 - MariaDB (Database)
 - Backend (Spring Boot w/ Tomcat)
 
-Gradle build.gradle:
+## Gradle build.gradle:
 ```
 plugins {
 	id 'org.springframework.boot' version '3.1.0'
@@ -37,31 +37,45 @@ test {
 }
 ```
 
-To generate a new build, run:
+## To generate a new build, run:
 ```
 ./gradlew build
 ```
 
-Deploy command:
+## Run command:
 ```
 ./gradlew bootRun
 ```
 
-DB structure: 
-1 User Table for demo purposes
+## Steps to deploy Docker container images using docker-compose
+Shut down any existing containers
+```
+docker-compose down
+```
+Then run:
+```
+docker-compose up -d
+```
 
-API Endpoints for testing:
+
+## DB structure: 
+2 Tables:
+- User Table 
+- Client table
+
+## API Endpoints for testing:
 - /api/v1/users/all
 - /api/v1/users/add 
 - /api/v1/clients
 
-Sample Curl View all Clients:
+## Sample Curl:
+
+View all Clients: 
 ```
 $ curl http://localhost:8080/api/v1/clients
 ```
 
-
-Sample Curl Add User:
+Add User:
 ```
 $ curl http://localhost:8080/api/v1/users/add -d name=First -d email=someemail@someemailprovider.com
 ```

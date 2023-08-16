@@ -28,7 +28,7 @@ EXPOSE 8080
 # target folder and save it in a JAR_FILE variable. You can also pass more
 # arguments like credentials, keys, and environment variables with their
 # respective values.
-ARG JAR_FILE=build/libs/rest-service-0.1.3-SNAPSHOT.jar
+ARG JAR_FILE=build/libs/rest-service-0.1.4-SNAPSHOT.jar
 
 # Renames Jar file as app.jar
 ADD ${JAR_FILE} app.jar
