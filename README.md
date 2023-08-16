@@ -51,23 +51,29 @@ DB structure:
 1 User Table for demo purposes
 
 API Endpoints for testing:
-- /users/all
-- /users/add 
-- /greeting
+- /api/v1/users/all
+- /api/v1/users/add 
+- /api/v1/clients
+
+Sample Curl View all Clients:
+```
+$ curl http://localhost:8080/api/v1/clients
+```
+
 
 Sample Curl Add User:
 ```
-$ curl http://localhost:8080/users/add -d name=First -d email=someemail@someemailprovider.com
+$ curl http://localhost:8080/api/v1/users/add -d name=First -d email=someemail@someemailprovider.com
 ```
 
 If you are adding via Postman (Post):
 ```
-http://localhost:8080/users/add?name=First&email=someemail@someemailprovider.com
+http://localhost:8080/api/v1/users/add?name=First&email=someemail@someemailprovider.com
 ```
 
 Sample CURL Grab all User Data:
 ```
-$ curl http://localhost:8080/users/all
+$ curl http://localhost:8080/api/v1/users/all
 ```
 
 
