@@ -56,6 +56,10 @@ Then run:
 ```
 docker-compose up -d
 ```
+If you need to do a new docker build, then run: 
+```
+docker-compose up --build
+```
 
 
 ## DB structure: 
