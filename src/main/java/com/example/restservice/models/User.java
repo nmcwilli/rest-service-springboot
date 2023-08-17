@@ -1,4 +1,4 @@
-package com.example.restservice.user;
+package com.example.restservice.models;
 
 import jakarta.persistence.*;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; // BCrypt

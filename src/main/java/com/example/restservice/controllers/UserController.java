@@ -1,8 +1,8 @@
-package com.example.restservice.user;
+package com.example.restservice.controllers;
 
-import com.example.restservice.client.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import com.example.restservice.service.UserService;
+import com.example.restservice.models.User;
+import com.example.restservice.request.UserRequest;
 import org.springframework.http.ResponseEntity;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;

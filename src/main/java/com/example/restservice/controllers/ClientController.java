@@ -1,8 +1,10 @@
-package com.example.restservice.client;
+package com.example.restservice.controllers;
 
+import com.example.restservice.models.Client;
+import com.example.restservice.service.ClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.net.URI;
+
 import java.net.URISyntaxException;
 import java.util.List;
 

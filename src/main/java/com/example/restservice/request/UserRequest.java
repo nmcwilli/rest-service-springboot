@@ -1,4 +1,4 @@
-package com.example.restservice.user;
+package com.example.restservice.request;
 
 public class UserRequest {
 

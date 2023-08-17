@@ -1,10 +1,10 @@
-package com.example.restservice.client;
+package com.example.restservice.service;
 
+import com.example.restservice.models.Client;
+import com.example.restservice.repository.ClientRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.net.URI;
 import java.net.URISyntaxException;

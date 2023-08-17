@@ -1,6 +1,8 @@
-package com.example.restservice.user;
+package com.example.restservice.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.restservice.models.User;
+import com.example.restservice.repository.UserRepository;
+import com.example.restservice.request.UserRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

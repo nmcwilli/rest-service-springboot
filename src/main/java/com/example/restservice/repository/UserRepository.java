@@ -1,8 +1,8 @@
-package com.example.restservice.user;
+package com.example.restservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.restservice.user.User;
+import com.example.restservice.models.User;
 import org.springframework.stereotype.Repository;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository

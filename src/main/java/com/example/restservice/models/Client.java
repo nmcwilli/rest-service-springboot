@@ -1,4 +1,4 @@
-package com.example.restservice.client;
+package com.example.restservice.models;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
