@@ -2,7 +2,7 @@ package com.example.restservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.restservice.models.User;
+import com.example.restservice.models.UserEntity;
 import org.springframework.stereotype.Repository;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository
-        extends JpaRepository<User, Long> {
+        extends JpaRepository<UserEntity, Long> {
 
 }

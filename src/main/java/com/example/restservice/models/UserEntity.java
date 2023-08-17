@@ -3,14 +3,18 @@ package com.example.restservice.models;
 import jakarta.persistence.*;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; // BCrypt
 
+// This is our User Model
+
 @Entity // This tells Hibernate to make a table out of this class
 @Table(name = "user") // Defining a table name
-public class User {
+public class UserEntity {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
     private Long id; // User ID
+
+    private String username; // Username
 
     private String name; // User Name
 
@@ -22,7 +26,7 @@ public class User {
     // ------------
 
     // No R constructor
-    public User() {
+    public UserEntity() {
     }
 
     public void setPassword(String password) {

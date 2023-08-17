@@ -1,7 +1,7 @@
 package com.example.restservice.controllers;
 
 import com.example.restservice.service.UserService;
-import com.example.restservice.models.User;
+import com.example.restservice.models.UserEntity;
 import com.example.restservice.request.UserRequest;
 import org.springframework.http.ResponseEntity;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,12 +23,12 @@ public class UserController {
     }
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<User> getAllUsers() {
+    public @ResponseBody Iterable<UserEntity> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody UserRequest userRequest) {
+    public ResponseEntity<UserEntity> createUser(@RequestBody UserRequest userRequest) {
         return userService.createUser(userRequest);
     }
 }

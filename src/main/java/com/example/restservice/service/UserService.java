@@ -1,6 +1,6 @@
 package com.example.restservice.service;
 
-import com.example.restservice.models.User;
+import com.example.restservice.models.UserEntity;
 import com.example.restservice.repository.UserRepository;
 import com.example.restservice.request.UserRequest;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class UserService {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-        User n = new User();
+        UserEntity n = new UserEntity();
         n.setName(name);
         n.setEmail(email);
         n.setPassword(password);
@@ -32,14 +32,14 @@ public class UserService {
         return "Saved";
     }
 
-    public @ResponseBody Iterable<User> getAllUsers() {
+    public @ResponseBody Iterable<UserEntity> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }
 
-    public ResponseEntity<User> createUser(@RequestBody UserRequest userRequest) {
+    public ResponseEntity<UserEntity> createUser(@RequestBody UserRequest userRequest) {
         // Create a new User object
-        User newUser = new User();
+        UserEntity newUser = new UserEntity();
         newUser.setName(userRequest.getName());
         newUser.setEmail(userRequest.getEmail());
 
@@ -49,7 +49,7 @@ public class UserService {
         newUser.setPassword(userRequest.getPassword()); // Setting raw password for testing
 
         // Save the new user in the repository
-        User savedUser = userRepository.save(newUser);
+        UserEntity savedUser = userRepository.save(newUser);
 
         // Return the saved user with a 201 Created status
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
