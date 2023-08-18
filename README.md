@@ -79,7 +79,7 @@ docker-compose up --build
 - User_Roles - Maps the users to roles 
 - Client table - Table that stores core client data 
 
-## Security Config
+## Security 
 
 Note that you can find the current security configuration under the SecurityConfig 
 file. There is currently Role based security defined. 
@@ -87,6 +87,9 @@ file. There is currently Role based security defined.
 There are 2 different ROLES:
 - USER
 - ADMIN
+
+Passwords are encrypted in storage at rest using:
+BCryptPasswordEncoder() 
 
 ## API Endpoints for testing:
 
