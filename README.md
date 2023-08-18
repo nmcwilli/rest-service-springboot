@@ -8,6 +8,12 @@ This is a REST API built with Spring Boot that can be used as a starting point f
 - MariaDB (Database)
 - Backend (Spring Boot w/ Tomcat)
 
+## Integrating with a Frontend:
+
+This project can be run standalone, but plays nicely with my React+Vite+TypeScript frontend
+project here: 
+https://github.com/nmcwilli/react-frontend-for-springboot-vite
+
 ## Gradle build.gradle:
 ```
 plugins {
