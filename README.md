@@ -74,38 +74,45 @@ docker-compose up --build
 
 ## DB structure: 
 2 Tables:
-- User Table 
-- Client table
+- User Table - Table that stores core user data 
+- Role Table - Defines what Roles are available 
+- User_Roles - Maps the users to roles 
+- Client table - Table that stores core client data 
+
+## Security Config
+
+Note that you can find the current security configuration under the SecurityConfig 
+file. There is currently Role based security defined. 
+
+There are 2 different ROLES:
+- USER
+- ADMIN
 
 ## API Endpoints for testing:
+
+USER role has access to these endpoints: 
+
 - /api/v1/users/all
 - /api/v1/users/add 
 - /api/v1/clients
+
+EVERYONE has access to the register endpoint: 
+
 - /api/v1/register
 
-## Sample Curl:
+## Sample Endpoint Requests
 
-View all Clients: 
+### View all Clients: 
 ```
 $ curl http://localhost:8080/api/v1/clients
 ```
 
-Add User:
-```
-$ curl http://localhost:8080/api/v1/users/add -d name=First -d email=someemail@someemailprovider.com
-```
-
-If you are adding via Postman (Post):
-```
-http://localhost:8080/api/v1/users/add?name=First&email=someemail@someemailprovider.com
-```
-
-Sample CURL Grab all User Data:
+### Grab all User Data:
 ```
 $ curl http://localhost:8080/api/v1/users/all
 ```
 
-Register a new user via Postman:
+### Register a new user via Postman:
 
 Send a request to this endpoint with sample RAW JSON Data in Body:
 ```

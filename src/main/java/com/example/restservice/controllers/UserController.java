@@ -16,10 +16,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping(path="/add") // Map ONLY POST Requests
-    public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String email, @RequestParam String password) {
-        return userService.addNewUser(name, email, password);
-    }
+//    @PostMapping(path="/add") // Map ONLY POST Requests
+//    public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String email, @RequestParam String password) {
+//        return userService.addNewUser(name, email, password);
+//    }
 
     @GetMapping(path="/all")
     public @ResponseBody Iterable<UserEntity> getAllUsers() {

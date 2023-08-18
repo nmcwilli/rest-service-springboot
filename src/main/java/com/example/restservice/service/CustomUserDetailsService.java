@@ -1,4 +1,4 @@
-package com.example.restservice.security;
+package com.example.restservice.service;
 
 import com.example.restservice.models.UserEntity;
 import com.example.restservice.models.Role;
