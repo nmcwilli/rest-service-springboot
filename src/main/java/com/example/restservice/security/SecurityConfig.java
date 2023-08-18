@@ -1,24 +1,46 @@
 package com.example.restservice.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+// Security Configuration File for Application
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
+    // Bringing in our CustomUserDetails Service and autowiring it
+    private CustomUserDetailsService userDetailsService;
+
+    @Autowired
+    public SecurityConfig(CustomUserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable()) // Disable CSRF protection for TEST ONLY
-                .authorizeHttpRequests(auth -> auth
-                        // Example role based sec
-                        // .requestMatchers("/api/v1/clients/**").hasRole("CLIENT") // Secure Client endpoints
-                        // .requestMatchers("/api/v1/users/**").hasRole("USER")     // Secure User endpoints
+                .authorizeHttpRequests((authorize) -> authorize
+                        // Secure specific endpoints first
+                        // .requestMatchers("/api/v1/users/**").hasRole("USER")
+                        // .requestMatchers("/api/v1/clients/**").hasRole("USER")
+                        // Allow unauthenticated access to the auth/register endpoint
+                        .requestMatchers("/api/v1/auth/register").permitAll()
                         // .requestMatchers("/token/**").permitAll() //
                         .anyRequest().authenticated() // Authorize all requests
                 )
@@ -26,4 +48,18 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+    // Bring in the authentication manager
+    @Bean
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
+
+    // Encrypt our passwords in storage
+    @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
 }

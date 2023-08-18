@@ -49,27 +49,30 @@ public class Client {
         this.dob = dob;
     }
 
-    // Getters and Setters
-    // -------------------
+    // Getters
+    // -------
 
     public Long getId() { // getId
         return id;
-    }
-
-    public void setId(Long id) { // setId
-        this.id = id;
     }
 
     public String getName() { // getName
         return name;
     }
 
-    public void setName(String name) { // setName
-        this.name = name;
-    }
-
     public String getEmail() { // getEmail
         return email;
+    }
+
+    // Setters
+    // -------
+
+    public void setId(Long id) { // setId
+        this.id = id;
+    }
+
+    public void setName(String name) { // setName
+        this.name = name;
     }
 
     public void setEmail(String email) { // setEmail

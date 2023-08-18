@@ -1,12 +1,17 @@
 package com.example.restservice.models;
 
 import jakarta.persistence.*;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; // BCrypt
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.util.ArrayList;
+import java.util.List;
 
 // This is our User Model
 
 @Entity // This tells Hibernate to make a table out of this class
 @Table(name = "user") // Defining a table name
+@Data
+@NoArgsConstructor
 public class UserEntity {
     @Id
     @GeneratedValue(
@@ -22,44 +27,12 @@ public class UserEntity {
 
     private String password; // User Password
 
-    // Constructors
-    // ------------
+    // Relationships
+    // -------------
 
-    // No R constructor
-    public UserEntity() {
-    }
-
-    public void setPassword(String password) {
-        // this.password = new BCryptPasswordEncoder().encode(password);
-        this.password = new String(password);
-    }
-
-    // Getters and Setters
-    // -------------------
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private List<Role> roles = new ArrayList<>();
 
 }

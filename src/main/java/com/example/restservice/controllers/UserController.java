@@ -4,7 +4,6 @@ import com.example.restservice.service.UserService;
 import com.example.restservice.models.UserEntity;
 import com.example.restservice.request.UserRequest;
 import org.springframework.http.ResponseEntity;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
