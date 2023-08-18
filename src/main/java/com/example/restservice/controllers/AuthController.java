@@ -1,5 +1,6 @@
 package com.example.restservice.controllers;
 
+import com.example.restservice.dto.LoginDto;
 import com.example.restservice.dto.RegisterDto;
 import com.example.restservice.models.Role;
 import com.example.restservice.models.UserEntity;
@@ -44,6 +45,16 @@ public class AuthController {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    // Login endpoint
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginDto.getUsername(),
+                loginDto.getPassword()));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        return new ResponseEntity<>("User signed in successfully!", HttpStatus.OK);
     }
 
     // Register endpoint

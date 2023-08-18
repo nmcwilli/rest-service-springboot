@@ -36,6 +36,7 @@ public class SecurityConfig {
                         // .requestMatchers("/api/v1/users/**").hasRole("USER")
                         // .requestMatchers("/api/v1/clients/**").hasRole("USER")
                         // Allow unauthenticated access to the auth/register endpoint
+                        .requestMatchers("/api/v1/auth/login").permitAll()
                         .requestMatchers("/api/v1/auth/register").permitAll()
                         // .requestMatchers("/token/**").permitAll() //
                         .anyRequest().authenticated() // Authorize all requests
