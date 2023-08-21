@@ -1,11 +1,13 @@
 package com.example.restservice.controllers;
 
+// import com.example.restservice.dto.AuthResponseDTO;
 import com.example.restservice.dto.LoginDto;
 import com.example.restservice.dto.RegisterDto;
 import com.example.restservice.models.Role;
 import com.example.restservice.models.UserEntity;
 import com.example.restservice.repository.RoleRepository;
 import com.example.restservice.repository.UserRepository;
+import com.example.restservice.security.JWTGenerator;
 import com.example.restservice.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +40,9 @@ public class AuthController {
     // Password encoder
     private PasswordEncoder passwordEncoder;
 
+    // Include our Token generator
+    // private JWTGenerator jwtGenerator;
+
     @Autowired
     public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository,
                           RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
@@ -45,6 +50,7 @@ public class AuthController {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        // this.jwtGenerator = jwtGenerator;
     }
 
     // Login endpoint
@@ -52,13 +58,13 @@ public class AuthController {
     public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginDto.getUsername(),
-                loginDto.getPassword()));
+                        loginDto.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return new ResponseEntity<>("User signed in successfully!", HttpStatus.OK);
     }
 
     // Register endpoint
-    @PostMapping("register")
+    @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterDto registerDto) {
 
         if (registerDto == null || registerDto.getPassword() == null) {
