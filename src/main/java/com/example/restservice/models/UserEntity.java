@@ -1,5 +1,6 @@
 package com.example.restservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,8 @@ public class UserEntity {
 
     private String email; // User Email
 
+    @JsonIgnore
+    @Column(name = "password")
     private String password; // User Password
 
     // Relationships

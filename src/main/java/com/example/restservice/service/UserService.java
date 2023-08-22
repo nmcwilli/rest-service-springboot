@@ -1,5 +1,6 @@
 package com.example.restservice.service;
 
+import com.example.restservice.dto.UserResponseDto;
 import com.example.restservice.models.UserEntity;
 import com.example.restservice.repository.UserRepository;
 import com.example.restservice.request.UserRequest;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // Service layer contains all the Business logic for User Service
 @Service
@@ -32,9 +36,25 @@ public class UserService {
         return "Saved";
     }
 
-    public @ResponseBody Iterable<UserEntity> getAllUsers() {
-        // This returns a JSON or XML with the users
-        return userRepository.findAll();
+//    public @ResponseBody Iterable<UserEntity> getAllUsers() {
+//        // This returns a JSON or XML with the users
+//        return userRepository.findAll();
+//    }
+
+    public List<UserResponseDto> getAllUsers() {
+        List<UserEntity> users = userRepository.findAll();
+
+        List<UserResponseDto> userResponseDTOs = new ArrayList<>();
+        for (UserEntity user : users) {
+            UserResponseDto userResponseDTO = new UserResponseDto();
+            userResponseDTO.setId(user.getId());
+            userResponseDTO.setUsername(user.getUsername());
+            userResponseDTO.setName(user.getName());
+            userResponseDTO.setEmail(user.getEmail());
+            userResponseDTOs.add(userResponseDTO);
+        }
+
+        return userResponseDTOs;
     }
 
     public ResponseEntity<UserEntity> createUser(@RequestBody UserRequest userRequest) {

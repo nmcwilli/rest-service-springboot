@@ -1,10 +1,13 @@
 package com.example.restservice.controllers;
 
+import com.example.restservice.dto.UserResponseDto;
 import com.example.restservice.service.UserService;
 import com.example.restservice.models.UserEntity;
 import com.example.restservice.request.UserRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -22,8 +25,9 @@ public class UserController {
 //    }
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<UserEntity> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<UserResponseDto>> getAllUsers() {
+        List<UserResponseDto> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
     }
 
     @PostMapping
